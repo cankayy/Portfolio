@@ -822,6 +822,55 @@
   margin-top: 64px; /* same gap as between horizontal line and Outcomes below */
 }
 
+/* Cheerful Leading design – mobile overrides (must come after base so they win) */
+@media (max-width: 900px) {
+  .case-study-process-with-vertical .case-study-section--process {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px 0;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 64px;
+    box-sizing: border-box;
+  }
+
+  .case-study-process-with-vertical .case-study-process-left {
+    min-width: 0;
+    order: 1;
+    grid-row: 1;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .case-study-process-with-vertical .case-study-section--process .case-study-process-images {
+    order: 2;
+    grid-row: 2;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    min-width: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .case-study-process-with-vertical .case-study-section--process .case-study-process-figure {
+    min-width: 0;
+  }
+
+  .case-study-process-with-vertical .case-study-section--process .case-study-process-image {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .case-study-process-with-vertical .case-study-section--process .case-study-section-body {
+    overflow-wrap: break-word;
+  }
+}
+
 /* Process section when no bento (e.g. Hugsi): same padding as Deliverables (page 25px only) */
 .case-study:not(.case-study--has-process-vertical) .case-study-section--process {
   padding-left: 0;
@@ -956,6 +1005,12 @@
 
 .case-study-process-with-vertical .case-study-section--process .case-study-process-images {
   padding-right: 25px; /* same as left column padding so boxes align with written content */
+}
+
+@media (max-width: 900px) {
+  .case-study-process-with-vertical .case-study-section--process .case-study-process-images {
+    padding-right: 0;
+  }
 }
 
 .case-study-section--process .case-study-section-body {
