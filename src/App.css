@@ -1,0 +1,124 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+@media (min-width: 901px) {
+  .app {
+    flex-direction: row;
+  }
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: var(--content-top) 48px 80px 40px;
+  margin-left: 180px;
+}
+
+.main--full-width {
+  margin-left: 0;
+  padding-left: 180px;
+  padding-right: 180px;
+}
+
+.hero-section {
+  width: calc(100% + 40px + 48px);
+  margin-left: -40px;
+  margin-right: -48px;
+  padding: 0 48px 60px 40px;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+@media (max-width: 900px) {
+  .main {
+    margin-left: 0;
+    padding: var(--content-top) 24px 64px;
+  }
+
+  .main--full-width {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .hero-section {
+    width: calc(100% + 24px + 24px);
+    margin-left: -24px;
+    margin-right: -24px;
+    padding: 0 24px 60px 24px;
+  }
+
+  .about-section-wrap {
+    width: calc(100% + 24px + 24px);
+    margin-left: -24px;
+    margin-right: -24px;
+    margin-top: 50px;
+    padding: 24px 24px 0 24px;
+  }
+}
+
+.about-section-wrap {
+  width: calc(100% + 40px + 48px);
+  margin-left: -40px;
+  margin-right: -48px;
+  margin-top: 50px;
+  padding: 24px 48px 0 40px;
+  border-top: 1px solid #d9d9d9;
+}
+
+.projects {
+  margin-top: 50px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1100px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding: var(--content-top) 16px 48px;
+  }
+
+  .main--full-width {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero-section {
+    width: calc(100% + 16px + 16px);
+    margin-left: -16px;
+    margin-right: -16px;
+    padding: 0 16px 40px 16px;
+  }
+
+  .about-section-wrap {
+    width: calc(100% + 16px + 16px);
+    margin-left: -16px;
+    margin-right: -16px;
+    padding: 16px 16px 0 16px;
+  }
+
+  .projects {
+    margin-top: 32px;
+  }
+
+  .projects-grid {
+    gap: 16px;
+  }
+}

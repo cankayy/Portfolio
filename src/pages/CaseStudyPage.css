@@ -1,0 +1,1127 @@
+.case-study-page {
+  position: relative;
+  width: 100%;
+  padding: 0 25px;
+}
+
+/* Vertical dotted lines: little line segments, full viewport height */
+.case-study-page::before,
+.case-study-page::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    #d9d9d9 0,
+    #d9d9d9 5px,
+    transparent 5px,
+    transparent 9px
+  );
+  border: none;
+  border-radius: 0;
+}
+
+.case-study-page::before {
+  left: 180px;
+}
+
+.case-study-page::after {
+  right: 180px;
+  left: auto;
+}
+
+/* Horizontal dotted line under bento: connects left/right vertical lines, 80px below bento */
+.case-study-dotted-line-horizontal {
+  margin-top: 80px;
+  margin-bottom: 250px;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  height: 1px;
+  background: repeating-linear-gradient(
+    to right,
+    #d9d9d9 0,
+    #d9d9d9 5px,
+    transparent 5px,
+    transparent 9px
+  );
+  padding: 0 180px;
+  box-sizing: border-box;
+  background-clip: content-box;
+  background-origin: content-box;
+}
+
+/* Wrapper for "Leading design from 0 to 1" section: top horizontal + process + vertical line (vertical touches both horizontals) */
+.case-study-process-with-vertical {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-top: 250px; /* gap after problem boxes; first child is the horizontal line */
+}
+
+/* Second horizontal line (after problem): no extra margin, so vertical line top: 0 meets it */
+.case-study-dotted-line-horizontal--after-problem {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Horizontal line after process section (e.g. under gray boxes on Hugsi) */
+.case-study-dotted-line-horizontal--after-process {
+  margin-top: 80px;
+  margin-bottom: 64px;
+}
+
+/* When process wrapper provides the second horizontal line, hide first problem section's ::after only (outcome keeps its ::after) */
+.case-study--has-process-vertical .case-study-section--problem-first::after {
+  display: none;
+}
+
+/* Vertical dotted line 400px right of left edge line; top: 0 and bottom: 0 so it touches both horizontals */
+.case-study-dotted-line-vertical {
+  position: absolute;
+  left: 580px; /* 180px (left line) + 400px */
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    #d9d9d9 0,
+    #d9d9d9 5px,
+    transparent 5px,
+    transparent 9px
+  );
+}
+
+@media (max-width: 900px) {
+  .case-study-page::before {
+    left: 24px;
+  }
+
+  .case-study-page::after {
+    right: 24px;
+  }
+
+  .case-study-dotted-line-horizontal {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .case-study-section--problem::after {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .case-study-section--outcome::before {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .case-study-section--process-with-line::after {
+    width: calc(100vw - 48px);
+    margin-left: 0;
+  }
+
+  .case-study-dotted-line-vertical {
+    left: 424px; /* 24px (left line) + 400px */
+  }
+
+  .case-study-process-with-vertical .case-study-section--process {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .case-study-deliverables-panel {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .case-study-page {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .case-study-page::before {
+    left: 16px;
+  }
+
+  .case-study-page::after {
+    right: 16px;
+  }
+
+  .case-study-dotted-line-horizontal {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .case-study-section--problem::after {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .case-study-section--outcome::before {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .case-study-process-with-vertical .case-study-section--process {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .case-study-section--problem {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .case-study-back {
+    margin-bottom: 32px;
+  }
+
+  .case-study-hero {
+    margin-bottom: 24px;
+  }
+
+  .case-study-title {
+    font-size: clamp(26px, 6vw, 32px);
+  }
+
+  .case-study-tagline {
+    margin-bottom: 80px;
+    font-size: 16px;
+  }
+
+  .case-study-cta {
+    margin-top: 48px;
+    padding-top: 32px;
+  }
+
+  .case-study:not(.case-study--has-process-vertical) .case-study-section--process {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .case-study:not(.case-study--has-process-vertical) .case-study-process-images {
+    padding-right: 16px;
+  }
+}
+
+/* Staggered fade-in from bottom with bounce */
+@keyframes case-study-stagger-in {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.case-study-back {
+  animation: case-study-stagger-in 0.55s cubic-bezier(0.34, 1.2, 0.64, 1) 0s forwards;
+  opacity: 0;
+}
+
+.case-study > * {
+  animation: case-study-stagger-in 0.55s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
+  opacity: 0;
+}
+
+.case-study > *:nth-child(1) { animation-delay: 0.08s; }
+.case-study > *:nth-child(2) { animation-delay: 0.16s; }
+.case-study > *:nth-child(3) { animation-delay: 0.24s; }
+.case-study > *:nth-child(4) { animation-delay: 0.32s; }
+.case-study > *:nth-child(5) { animation-delay: 0.4s; }
+.case-study > *:nth-child(6) { animation-delay: 0.48s; }
+.case-study > *:nth-child(7) { animation-delay: 0.56s; }
+.case-study > *:nth-child(8) { animation-delay: 0.64s; }
+.case-study > *:nth-child(9) { animation-delay: 0.72s; }
+.case-study > *:nth-child(10) { animation-delay: 0.8s; }
+.case-study > *:nth-child(11) { animation-delay: 0.88s; }
+.case-study > *:nth-child(12) { animation-delay: 0.96s; }
+.case-study > *:nth-child(13) { animation-delay: 1.04s; }
+.case-study > *:nth-child(14) { animation-delay: 1.12s; }
+.case-study > *:nth-child(15) { animation-delay: 1.2s; }
+
+.case-study {
+  max-width: 100%;
+  margin: 0;
+  padding-bottom: 80px;
+}
+
+.case-study--missing {
+  padding: 48px 0;
+  color: var(--text-muted);
+}
+
+.case-study--missing a {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+/* Back link: same position as homepage "Cannon Hurst" (left edge of content area) */
+.case-study-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 55px;
+  text-decoration: none;
+  color: var(--text);
+  transition: color 0.2s;
+}
+
+.case-study-back:hover {
+  color: var(--text-muted);
+}
+
+.case-study-back-arrow {
+  font-size: 18px;
+  font-weight: 400;
+  opacity: 0;
+  animation: case-study-arrow-fade-in 0.4s ease-out forwards;
+}
+
+.case-study-back-name {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 400;
+  color: inherit;
+}
+
+@keyframes case-study-arrow-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.case-study-hero {
+  margin-bottom: 40px;
+}
+
+.case-study-title {
+  font-family: 'Inter', var(--font-sans);
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 20px;
+  color: var(--text);
+}
+
+.case-study-tagline {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0 0 130px;
+}
+
+.case-study-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 40px;
+  margin: 0;
+}
+
+.case-study-meta__live {
+  margin-left: auto;
+}
+
+.case-study-meta__live-arrow {
+  margin-left: 0.25em;
+}
+
+.case-study-meta div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.case-study-meta dt {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.case-study-meta dd {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  margin: 0;
+}
+
+.case-study-meta a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.case-study-meta a:hover {
+  color: var(--text-muted);
+}
+
+/* Hero bento grid (Cheerful AI): 1393×962, 2×2, 12px gap, corners 25px; bottom row swapped */
+.case-study-hero-bento {
+  width: 100%;
+  max-width: 1393px;
+  aspect-ratio: 1393 / 962;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 64px;
+}
+
+.case-study-hero-bento__row {
+  display: grid;
+  grid-template-columns: 2.03fr 1fr; /* top: wide | narrow */
+  gap: 12px;
+  min-height: 0;
+}
+
+.case-study-hero-bento__row--swapped {
+  grid-template-columns: 1fr 2.03fr; /* bottom: narrow | wide */
+}
+
+.case-study-hero-bento__cell {
+  background: #fff;
+  border-radius: 25px;
+  border: 0.5px solid #d9d9d9;
+  box-shadow: 0 0 6.55px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+
+.case-study-hero-bento__cell-img {
+  position: absolute;
+  inset: -1px; /* extend under the cell border so image covers the stroke */
+  display: block;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  object-fit: cover;
+  border-radius: 25px;
+}
+
+/* Hero image: white box matching bento style (25px radius, stroke, shadow) */
+.case-study-hero-image {
+  margin-bottom: 250px;
+  background: #fff;
+  border-radius: 25px;
+  border: 0.5px solid #d9d9d9;
+  box-shadow: 0 0 6.55px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.case-study-hero-image--with-line {
+  margin-bottom: 0;
+}
+
+.case-study-hero-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  vertical-align: top;
+}
+
+.case-study-placeholder {
+  background: #e5e5e5;
+  border-radius: 8px;
+}
+
+.case-study-placeholder--hero {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+}
+
+.case-study-placeholder--process {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+
+/* Sections */
+.case-study-section {
+  margin-bottom: 64px;
+}
+
+.case-study-section-subtitle {
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin: 0 0 12px;
+  text-align: center;
+}
+
+.case-study-section-heading {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 16px;
+  line-height: 1.3;
+}
+
+.case-study-section-heading--centered {
+  text-align: center;
+}
+
+.case-study-section-intro {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0 0 32px;
+  text-align: center;
+}
+
+.case-study-section--problem-first .case-study-section-intro {
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 48px;
+  padding-right: 48px;
+  box-sizing: content-box;
+}
+
+.case-study-section-body {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 0 0 24px;
+}
+
+/* Problem section: 3 columns */
+.case-study-section--problem {
+  text-align: center;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+/* 250px gap + horizontal dotted line after problem boxes */
+.case-study-section--problem::after {
+  content: '';
+  display: block;
+  margin-top: 250px;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  height: 1px;
+  background: repeating-linear-gradient(
+    to right,
+    #d9d9d9 0,
+    #d9d9d9 5px,
+    transparent 5px,
+    transparent 9px
+  );
+  padding: 0 180px;
+  box-sizing: border-box;
+  background-clip: content-box;
+  background-origin: content-box;
+}
+
+/* Outcome section: 250px gap, horizontal line, then 100px gap above the pill */
+.case-study-section--outcome::before {
+  content: '';
+  display: block;
+  margin-top: 250px;
+  margin-bottom: 100px;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  height: 1px;
+  background: repeating-linear-gradient(
+    to right,
+    #d9d9d9 0,
+    #d9d9d9 5px,
+    transparent 5px,
+    transparent 9px
+  );
+  padding: 0 180px;
+  box-sizing: border-box;
+  background-clip: content-box;
+  background-origin: content-box;
+}
+
+/* Hugsi: bring outcome horizontal line closer to deliverables */
+.case-study--hugsi .case-study-section--outcome::before {
+  margin-top: 64px;
+}
+
+/* Outcome: 100px gap below content before the horizontal line */
+.case-study-section--outcome::after {
+  margin-top: 100px;
+}
+
+.case-study-section--problem .case-study-section-subtitle {
+  display: inline-block;
+  background: #efefef;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+.case-study-section--problem .case-study-section-body {
+  text-align: center;
+}
+
+.case-study-problem-image-wrap {
+  margin-top: 50px;
+}
+
+.case-study-problem-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.case-study-problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+  text-align: left;
+}
+
+.case-study-section--outcome .case-study-problem-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.case-study-section--outcome .case-study-section-intro {
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 48px;
+  padding-right: 48px;
+  box-sizing: content-box;
+}
+
+/* Outcome cards as user quotes */
+.case-study-section--outcome .case-study-problem-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.case-study-section--outcome .case-study-problem-card-body {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0 0 12px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.case-study-section--outcome .case-study-problem-card-body::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: -4px;
+  font-size: 28px;
+  line-height: 1;
+  font-family: Georgia, serif;
+  color: var(--text-muted);
+}
+
+.case-study-section--outcome .case-study-problem-card-heading {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin: 0;
+  font-style: italic;
+}
+
+@media (max-width: 700px) {
+  .case-study-problem-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.case-study-problem-card {
+  padding: 24px;
+  background: #efefef;
+  border: none;
+  border-radius: 8px;
+}
+
+.case-study-problem-card-heading {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 8px;
+}
+
+.case-study-problem-card-body {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Process section: text left (between left line and new vertical), boxes right (between new vertical and right line) */
+.case-study-process-with-vertical .case-study-section--process {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 0 40px;
+  padding-left: 180px;
+  padding-right: 180px;
+  box-sizing: border-box;
+  margin-top: 64px; /* same gap as between horizontal line and Outcomes below */
+}
+
+/* Process section when no bento (e.g. Hugsi): same padding as Deliverables (page 25px only) */
+.case-study:not(.case-study--has-process-vertical) .case-study-section--process {
+  padding-left: 0;
+  padding-right: 0;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 0 40px;
+  box-sizing: border-box;
+}
+
+.case-study:not(.case-study--has-process-vertical) .case-study-process-left {
+  position: relative;
+  padding-left: 0;
+  padding-right: 25px;
+}
+
+/* Vertical dotted line between text and graph images (Hugsi process section); extends to touch horizontal lines above and below */
+.case-study:not(.case-study--has-process-vertical) .case-study-process-left::after {
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: -64px;   /* up to horizontal line above (problem section margin-bottom) */
+  bottom: -80px; /* down to horizontal line below (--after-process margin-top) */
+  width: 1px;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    #d9d9d9 0,
+    #d9d9d9 5px,
+    transparent 5px,
+    transparent 9px
+  );
+}
+
+.case-study:not(.case-study--has-process-vertical) .case-study-section--process {
+  overflow: visible;
+}
+
+.case-study:not(.case-study--has-process-vertical) .case-study-process-images {
+  grid-template-columns: 1fr;
+  gap: 32px;
+  min-width: 0;
+  overflow: visible;
+  align-content: start;
+  padding-right: 25px; /* match Deliverables panel-right so right edge aligns */
+}
+
+.case-study:not(.case-study--has-process-vertical) .case-study-process-figure {
+  margin: 0;
+  overflow: visible;
+}
+
+.case-study:not(.case-study--has-process-vertical) .case-study-process-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  border-radius: 0;
+  display: block;
+}
+
+.case-study:not(.case-study--has-process-vertical) .case-study-process-caption {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .case-study:not(.case-study--has-process-vertical) .case-study-section--process {
+    grid-template-columns: 1fr;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .case-study:not(.case-study--has-process-vertical) .case-study-process-left::after {
+    display: none;
+  }
+
+  .case-study:not(.case-study--has-process-vertical) .case-study-process-images {
+    grid-template-columns: 1fr;
+  }
+}
+
+.case-study-process-left {
+  min-width: 0;
+  padding-left: 25px;
+  padding-right: 25px; /* match case-study-page padding so text aligns with hero */
+}
+
+.case-study-process-with-vertical .case-study-section--process .case-study-process-images {
+  padding-right: 25px; /* same as left column padding so boxes align with written content */
+}
+
+.case-study-section--process .case-study-section-body {
+  margin-bottom: 0;
+  white-space: pre-line;
+}
+
+/* 300px gap + horizontal dotted line only after the first "Leading design from 0 to 1" section */
+.case-study-section--process-with-line::after {
+  content: '';
+  display: block;
+  margin-top: 300px;
+  width: calc(100vw - 360px);
+  margin-left: 0;
+  height: 1px;
+  background: repeating-linear-gradient(
+    to right,
+    #d9d9d9 0,
+    #d9d9d9 5px,
+    transparent 5px,
+    transparent 9px
+  );
+  box-sizing: border-box;
+}
+
+/* Deliverables section: smaller margin below so second process section sits closer */
+.case-study-section--deliverables {
+  margin-bottom: 8px;
+}
+
+/* Deliverables: title left, tabs on the right */
+.case-study-deliverables-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.case-study-deliverables-header .case-study-deliverables-heading {
+  margin: 0;
+}
+
+.case-study-deliverables-tabs-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.case-study-deliverables-callout {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.case-study-deliverables-callout-text {
+  white-space: nowrap;
+}
+
+.case-study-deliverables-callout-arrow {
+  width: 48px;
+  height: 24px;
+  color: var(--text-muted);
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+/* Liquid glass tab bar: frosted, right-aligned, fully rounded */
+.case-study-deliverables-tabs {
+  display: flex;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 4px;
+  gap: 2px;
+  box-sizing: border-box;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(217, 217, 217, 0.5);
+  box-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.case-study-deliverables-tab {
+  flex: 0 0 auto;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  color: #444;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.case-study-deliverables-tab:hover {
+  color: #1a1a1a;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.case-study-deliverables-tab--active {
+  background: #fff;
+  color: #1a1a1a;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.case-study-deliverables-tab-label {
+  font-weight: 600;
+}
+
+.case-study-deliverables-tab--active .case-study-deliverables-tab-label {
+  background: linear-gradient(135deg, #7c3aed, #ea580c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Same layout as "Leading design from 0 to 1": text left, one box right; align left with heading/tabs */
+.case-study-deliverables-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 400px) 1fr;
+  gap: 0 40px;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.case-study-deliverables-panel-left {
+  min-width: 0;
+  padding-left: 0;
+  padding-right: 25px;
+  text-align: left;
+}
+
+/* Cheerful: vertical dotted line between text and tab image (matches "Leading design from 0 to 1"); touches horizontals above and below */
+.case-study--has-process-vertical .case-study-deliverables-panel-left {
+  position: relative;
+}
+
+.case-study--has-process-vertical .case-study-deliverables-panel-left::after {
+  content: '';
+  position: absolute;
+  left: 375px;    /* left of column edge (400px); move line left into gap */
+  top: -120px;   /* up to horizontal line above (process wrapper bottom / process section ::after line) */
+  bottom: -250px; /* down to horizontal line below (just touches; panel-left can be shorter than section) */
+  width: 1px;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    #d9d9d9 0,
+    #d9d9d9 5px,
+    transparent 5px,
+    transparent 9px
+  );
+}
+
+/* Hugsi: vertical dotted line between text and tab image (same as process section) */
+.case-study--hugsi .case-study-deliverables-panel-left {
+  position: relative;
+}
+
+.case-study--hugsi .case-study-deliverables-panel-left::after {
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: -160px;   /* up to horizontal line above (--after-process margin-bottom 64px + header + gap) */
+  bottom: -64px; /* down to horizontal line below (just touches; panel-left can be shorter than section) */
+  width: 1px;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    #d9d9d9 0,
+    #d9d9d9 5px,
+    transparent 5px,
+    transparent 9px
+  );
+}
+
+.case-study-deliverables-panel-left .case-study-section-body {
+  text-align: left;
+}
+
+.case-study-deliverables-panel-left .case-study-section-body:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.case-study-deliverables-panel-right {
+  min-width: 0;
+  padding-right: 25px;
+}
+
+.case-study-placeholder--deliverables {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+
+.case-study-deliverables-image {
+  display: block;
+  width: 100%;
+  border-radius: 15px;
+  object-fit: contain;
+}
+
+@media (max-width: 700px) {
+  .case-study-deliverables-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .case-study--has-process-vertical .case-study-deliverables-panel-left::after,
+  .case-study--hugsi .case-study-deliverables-panel-left::after {
+    display: none;
+  }
+
+  .case-study-deliverables-panel-right {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .case-study-deliverables-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .case-study-deliverables-tabs-wrap {
+    margin-left: 0;
+  }
+
+  .case-study-deliverables-tabs {
+    flex-wrap: wrap;
+  }
+}
+
+.case-study-process-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 700px) {
+  .case-study-process-images {
+    grid-template-columns: 1fr;
+  }
+}
+
+.case-study-process-figure {
+  margin: 0;
+}
+
+.case-study-process-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Non-bento process (e.g. Hugsi): show full images, no crop, no box */
+.case-study:not(.case-study--has-process-vertical) .case-study-process-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+.case-study-process-caption {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 12px;
+  line-height: 1.4;
+}
+
+/* Testimonial */
+.case-study-testimonial {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+}
+
+.case-study-quote {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* CTA */
+.case-study-cta {
+  margin-top: 80px;
+  padding-top: 48px;
+  text-align: center;
+}
+
+.case-study-cta-heading {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 12px;
+}
+
+.case-study-cta-text {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin: 0 0 24px;
+}
+
+.case-study-cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.case-study-cta-button {
+  display: inline-block;
+  padding: 12px 24px;
+  min-height: 44px;
+  box-sizing: border-box;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: border-color 0.2s, background 0.2s;
+  text-decoration: none;
+  line-height: 1.25;
+}
+
+.case-study-cta-button:hover {
+  border-color: var(--text-muted);
+  background: var(--bg);
+}
