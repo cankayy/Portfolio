@@ -132,14 +132,30 @@
 
   .case-study-process-with-vertical {
     width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .case-study-process-with-vertical > .case-study-dotted-line-horizontal {
+    width: 100%;
     margin-left: 0;
   }
 
   .case-study-process-with-vertical .case-study-section--process {
+    width: 100%;
+    max-width: 100%;
     padding-left: 0;
     padding-right: 0;
     grid-template-columns: 1fr;
     min-width: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .case-study-process-with-vertical .case-study-section--process .case-study-section-body {
+    overflow-wrap: break-word;
   }
 
   .case-study-process-with-vertical .case-study-process-left {
