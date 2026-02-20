@@ -136,8 +136,8 @@
   }
 
   .case-study-process-with-vertical .case-study-section--process {
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 0;
+    padding-right: 0;
     grid-template-columns: 1fr;
     min-width: 0;
   }
@@ -253,8 +253,8 @@
   }
 
   .case-study-process-with-vertical .case-study-section--process {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .case-study-process-with-vertical .case-study-section--process .case-study-process-images {
