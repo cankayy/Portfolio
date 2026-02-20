@@ -276,7 +276,7 @@
   }
 
   .case-study-section--process-with-line::after {
-    margin-top: 48px;
+    margin-top: 32px;
   }
 
   .case-study-section--problem {
@@ -1034,6 +1034,14 @@
     transparent 9px
   );
   box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .case-study-section--process-with-line::after {
+    margin-top: 40px;
+    width: 100%;
+    margin-left: 0;
+  }
 }
 
 /* Deliverables section: smaller margin below so second process section sits closer */
