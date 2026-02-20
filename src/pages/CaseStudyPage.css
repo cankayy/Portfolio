@@ -921,7 +921,11 @@
   text-align: left;
 }
 
-/* Cheerful: vertical dotted line between text and tab image (matches "Leading design from 0 to 1"); touches horizontals above and below */
+/* Cheerful: narrower text column; vertical line at column edge */
+.case-study--has-process-vertical .case-study-deliverables-panel {
+  grid-template-columns: minmax(0, 320px) 1fr;
+}
+
 .case-study--has-process-vertical .case-study-deliverables-panel-left {
   position: relative;
 }
@@ -929,7 +933,7 @@
 .case-study--has-process-vertical .case-study-deliverables-panel-left::after {
   content: '';
   position: absolute;
-  left: 375px;    /* left of column edge (400px); move line left into gap */
+  left: 100%;     /* at right edge of narrower text column */
   top: -120px;   /* up to horizontal line above (process wrapper bottom / process section ::after line) */
   bottom: -250px; /* down to horizontal line below (just touches; panel-left can be shorter than section) */
   width: 1px;
