@@ -130,12 +130,13 @@
     left: 424px; /* 24px (left line) + 400px */
   }
 
+  /* Cheerful "Leading design from 0 to 1" – mobile: single column, no full-bleed, text then images */
   .case-study-process-with-vertical {
-    width: calc(100% + 12px);
-    max-width: calc(100% + 12px);
-    margin-left: -12px;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-top: 80px;
     box-sizing: border-box;
-    overflow-x: hidden;
   }
 
   .case-study-process-with-vertical > .case-study-dotted-line-horizontal {
@@ -144,18 +145,16 @@
   }
 
   .case-study-process-with-vertical .case-study-section--process {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px 0;
     width: 100%;
     max-width: 100%;
+    min-width: 0;
     padding-left: 0;
     padding-right: 0;
-    grid-template-columns: 1fr;
-    min-width: 0;
+    margin-top: 64px;
     box-sizing: border-box;
-    overflow-x: hidden;
-  }
-
-  .case-study-process-with-vertical .case-study-section--process .case-study-section-body {
-    overflow-wrap: break-word;
   }
 
   .case-study-process-with-vertical .case-study-process-left {
@@ -170,6 +169,7 @@
     order: 2;
     grid-row: 2;
     grid-template-columns: 1fr;
+    gap: 24px;
     min-width: 0;
     padding-right: 0;
   }
@@ -179,8 +179,14 @@
   }
 
   .case-study-process-with-vertical .case-study-section--process .case-study-process-image {
+    display: block;
+    width: 100%;
     max-width: 100%;
     height: auto;
+  }
+
+  .case-study-process-with-vertical .case-study-section--process .case-study-section-body {
+    overflow-wrap: break-word;
   }
 
   .case-study-section--process-with-line::after {
@@ -250,9 +256,6 @@
 
   .case-study-process-with-vertical {
     margin-top: 48px;
-    margin-left: -8px;
-    width: calc(100% + 8px);
-    max-width: calc(100% + 8px);
   }
 
   .case-study-section--problem::after {
@@ -269,15 +272,6 @@
   .case-study-section--outcome::before {
     padding-left: 16px;
     padding-right: 16px;
-  }
-
-  .case-study-process-with-vertical .case-study-section--process {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .case-study-process-with-vertical .case-study-section--process .case-study-process-images {
-    gap: 24px;
   }
 
   .case-study-section--process-with-line::after {
