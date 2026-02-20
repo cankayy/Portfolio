@@ -1,7 +1,9 @@
 .case-study-page {
   position: relative;
   width: 100%;
+  max-width: 100%;
   padding: 0 25px;
+  overflow-x: hidden;
 }
 
 /* Vertical dotted lines: little line segments, full viewport height */
@@ -131,6 +133,11 @@
   .case-study-process-with-vertical .case-study-section--process {
     padding-left: 24px;
     padding-right: 24px;
+    grid-template-columns: 1fr;
+  }
+
+  .case-study-dotted-line-vertical {
+    display: none;
   }
 
   .case-study-deliverables-panel {
@@ -157,11 +164,22 @@
   .case-study-dotted-line-horizontal {
     padding-left: 16px;
     padding-right: 16px;
+    margin-bottom: 48px;
+  }
+
+  .case-study-process-with-vertical {
+    margin-top: 48px;
   }
 
   .case-study-section--problem::after {
     padding-left: 16px;
     padding-right: 16px;
+    margin-top: 48px;
+  }
+
+  .case-study-section--outcome::before {
+    margin-top: 48px;
+    margin-bottom: 32px;
   }
 
   .case-study-section--outcome::before {
@@ -175,8 +193,8 @@
   }
 
   .case-study-section--problem {
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .case-study-back {
@@ -207,6 +225,16 @@
   }
 
   .case-study:not(.case-study--has-process-vertical) .case-study-process-images {
+    padding-right: 16px;
+  }
+
+  .case-study-section--problem-first .case-study-section-intro {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .case-study-section--outcome .case-study-section-intro {
+    padding-left: 16px;
     padding-right: 16px;
   }
 }
@@ -749,6 +777,44 @@
 }
 
 @media (max-width: 700px) {
+  .case-study-section--problem {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .case-study-section--problem-first .case-study-section-intro {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .case-study-dotted-line-horizontal {
+    margin-bottom: 80px;
+  }
+
+  .case-study-process-with-vertical {
+    margin-top: 80px;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .case-study-section--problem::after {
+    margin-top: 80px;
+  }
+
+  .case-study-section--outcome::before {
+    margin-top: 80px;
+    margin-bottom: 48px;
+  }
+
+  .case-study--hugsi .case-study-section--outcome::before {
+    margin-top: 64px;
+  }
+
+  .case-study-section--outcome .case-study-section-intro {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
   .case-study:not(.case-study--has-process-vertical) .case-study-section--process {
     grid-template-columns: 1fr;
     padding-left: 24px;
