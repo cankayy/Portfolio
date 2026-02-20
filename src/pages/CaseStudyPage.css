@@ -1332,6 +1332,16 @@
   .case-study--hugsi .case-study-deliverables-panel-left::after {
     display: none;
   }
+
+  .case-study--hugsi .case-study-deliverables-tabs-wrap {
+    justify-content: center;
+  }
+
+  .case-study--hugsi .case-study-deliverables-tabs {
+    width: auto;
+    max-width: 100%;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1358,6 +1368,11 @@
   .case-study-deliverables-tabs {
     flex-wrap: wrap;
     width: 100%;
+  }
+
+  .case-study--hugsi .case-study-deliverables-tabs {
+    width: auto;
+    justify-content: center;
   }
 
   .case-study-deliverables-tab {
