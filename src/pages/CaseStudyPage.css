@@ -130,7 +130,7 @@
     left: 424px; /* 24px (left line) + 400px */
   }
 
-  /* Cheerful "Leading design from 0 to 1" – mobile: single column, no full-bleed, text then images */
+  /* Cheerful "Leading design from 0 to 1" – mobile: same padding as deliverables (0; page padding only), single column, text then images */
   .case-study-process-with-vertical {
     width: 100%;
     max-width: 100%;
@@ -171,6 +171,7 @@
     grid-template-columns: 1fr;
     gap: 24px;
     min-width: 0;
+    padding-left: 0;
     padding-right: 0;
   }
 
