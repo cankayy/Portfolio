@@ -175,12 +175,14 @@
 
   .case-study--has-process-vertical .case-study-deliverables-panel-right {
     order: 1;
+    grid-row: 1;
     width: 100%;
     min-width: 0;
   }
 
   .case-study--has-process-vertical .case-study-deliverables-panel-left {
     order: 2;
+    grid-row: 2;
     min-width: 0;
     padding-right: 0;
   }
@@ -1197,10 +1199,12 @@
 
   .case-study--has-process-vertical .case-study-deliverables-panel-left {
     order: 2;
+    grid-row: 2;
   }
 
   .case-study--has-process-vertical .case-study-deliverables-panel-right {
     order: 1;
+    grid-row: 1;
   }
 
   .case-study-deliverables-image {
