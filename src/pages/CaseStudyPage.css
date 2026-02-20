@@ -149,14 +149,39 @@
 
   .case-study-process-with-vertical .case-study-section--process .case-study-process-images {
     order: 2;
+    grid-template-columns: 1fr;
   }
 
   .case-study-dotted-line-vertical {
     display: none;
   }
 
+  .case-study-deliverables-callout {
+    display: none;
+  }
+
   .case-study-deliverables-panel {
     padding-left: 0;
+    padding-right: 0;
+  }
+
+  .case-study--has-process-vertical .case-study-deliverables-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .case-study--has-process-vertical .case-study-deliverables-panel-left::after {
+    display: none;
+  }
+
+  .case-study--has-process-vertical .case-study-deliverables-panel-right {
+    order: 1;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .case-study--has-process-vertical .case-study-deliverables-panel-left {
+    order: 2;
+    min-width: 0;
     padding-right: 0;
   }
 
