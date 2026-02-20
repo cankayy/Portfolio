@@ -933,7 +933,7 @@
 .case-study--has-process-vertical .case-study-deliverables-panel-left::after {
   content: '';
   position: absolute;
-  left: 375px;    /* fixed position; text is narrower (320px) but line stays here */
+  left: 100%;     /* at right edge of narrower text column */
   top: -120px;   /* up to horizontal line above (process wrapper bottom / process section ::after line) */
   bottom: -250px; /* down to horizontal line below (just touches; panel-left can be shorter than section) */
   width: 1px;
