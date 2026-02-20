@@ -675,6 +675,27 @@
 @media (max-width: 700px) {
   .case-study-problem-grid {
     grid-template-columns: 1fr;
+    min-width: 0;
+  }
+
+  .case-study-problem-card {
+    min-width: 0;
+  }
+
+  .case-study-section--outcome {
+    overflow: visible;
+  }
+
+  .case-study-section--outcome .case-study-problem-card {
+    min-width: 0;
+  }
+
+  .case-study-problem-image-wrap {
+    min-width: 0;
+  }
+
+  .case-study-problem-image {
+    max-width: 100%;
   }
 }
 
@@ -1061,34 +1082,95 @@
 }
 
 @media (max-width: 700px) {
+  .case-study-section--deliverables {
+    overflow: visible;
+  }
+
+  .case-study-deliverables-header {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .case-study-deliverables-tabs-wrap {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    min-width: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+  }
+
+  .case-study-deliverables-tabs {
+    flex-wrap: wrap;
+    margin-left: 0;
+    max-width: 100%;
+    gap: 4px 2px;
+  }
+
+  .case-study-deliverables-tab {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
   .case-study-deliverables-panel {
     grid-template-columns: 1fr;
+    gap: 24px 0;
+    min-width: 0;
+  }
+
+  .case-study-deliverables-panel-left {
+    min-width: 0;
+    padding-right: 0;
+  }
+
+  .case-study-deliverables-panel-right {
+    padding-right: 0;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .case-study-deliverables-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
   }
 
   .case-study--has-process-vertical .case-study-deliverables-panel-left::after,
   .case-study--hugsi .case-study-deliverables-panel-left::after {
     display: none;
   }
-
-  .case-study-deliverables-panel-right {
-    padding-right: 0;
-  }
 }
 
 @media (max-width: 480px) {
   .case-study-deliverables-header {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
+    align-items: stretch;
+    gap: 12px;
     margin-bottom: 16px;
   }
 
   .case-study-deliverables-tabs-wrap {
     margin-left: 0;
+    width: 100%;
+  }
+
+  .case-study-deliverables-callout-text {
+    white-space: normal;
+  }
+
+  .case-study-deliverables-callout-arrow {
+    flex-shrink: 0;
   }
 
   .case-study-deliverables-tabs {
     flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .case-study-deliverables-tab {
+    padding: 8px 12px;
+    font-size: 12px;
   }
 }
 
