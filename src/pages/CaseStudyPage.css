@@ -921,9 +921,10 @@
   text-align: left;
 }
 
-/* Cheerful: vertical dotted line between text and tab image (matches "Leading design from 0 to 1"); touches horizontals above and below */
+/* Cheerful: vertical dotted line between text and tab image; match left padding to right (25px each side of written content) */
 .case-study--has-process-vertical .case-study-deliverables-panel-left {
   position: relative;
+  padding-left: 25px;
 }
 
 .case-study--has-process-vertical .case-study-deliverables-panel-left::after {
