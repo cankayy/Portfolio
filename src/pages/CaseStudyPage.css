@@ -489,6 +489,19 @@
   color: var(--text-muted);
 }
 
+@media (max-width: 900px) {
+  .case-study--has-process-vertical .case-study-meta > div:first-child {
+    order: 1;
+  }
+  .case-study--has-process-vertical .case-study-meta .case-study-meta__live {
+    order: 2;
+    margin-left: 0;
+  }
+  .case-study--has-process-vertical .case-study-meta > div:nth-child(2) {
+    order: 3;
+  }
+}
+
 /* Hero bento grid (Cheerful AI): 1393×962, 2×2, 12px gap, corners 25px; bottom row swapped */
 .case-study-hero-bento {
   width: 100%;
