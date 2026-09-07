@@ -271,3 +271,17 @@ img {
     height: 40px;
   }
 }
+
+/* On desktop, show just the icon — no border, background, or shadow */
+@media (min-width: 901px) {
+  .theme-toggle {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+  }
+
+  .theme-toggle:hover {
+    border-color: transparent;
+    color: var(--text-muted);
+  }
+}
