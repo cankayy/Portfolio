@@ -19,7 +19,7 @@ const desktopQuery = '(min-width: 901px) and (hover: hover) and (pointer: fine)'
 export default function HomePage() {
   const n = projects.length
   const [active, setActive] = useState(0)
-  const [hovering, setHovering] = useState(false)
+  const [hoverLabel, setHoverLabel] = useState(null)
   const [isDesktop, setIsDesktop] = useState(
     () => typeof window !== 'undefined' && window.matchMedia(desktopQuery).matches
   )
@@ -74,8 +74,8 @@ export default function HomePage() {
       tgt.y = e.clientY
     }
     const loop = () => {
-      cur.x += (tgt.x - cur.x) * 0.16
-      cur.y += (tgt.y - cur.y) * 0.16
+      cur.x += (tgt.x - cur.x) * 0.08
+      cur.y += (tgt.y - cur.y) * 0.08
       const el = cursorRef.current
       if (el) {
         el.style.transform = `translate3d(${cur.x}px, ${cur.y}px, 0) translate(-50%, -50%)`
@@ -92,7 +92,7 @@ export default function HomePage() {
 
   // Drop the hover state if we leave desktop mode
   useEffect(() => {
-    if (!isDesktop) setHovering(false)
+    if (!isDesktop) setHoverLabel(null)
   }, [isDesktop])
 
   return (
@@ -142,15 +142,20 @@ export default function HomePage() {
         {projects.map((p, i) => {
           const isActive = i === active
           const Tag = p.link ? Link : 'div'
+          const hoverText = p.link ? 'View' : 'Coming soon'
           const tagProps = p.link
             ? {
                 to: p.link,
                 className: `landing-photo landing-photo--link`,
-                onMouseEnter: () => setHovering(true),
-                onMouseLeave: () => setHovering(false),
+                onMouseEnter: () => setHoverLabel(hoverText),
+                onMouseLeave: () => setHoverLabel(null),
                 tabIndex: isActive ? 0 : -1,
               }
-            : { className: 'landing-photo' }
+            : {
+                className: 'landing-photo',
+                onMouseEnter: () => setHoverLabel(hoverText),
+                onMouseLeave: () => setHoverLabel(null),
+              }
           return (
             <section
               key={p.id}
@@ -192,10 +197,10 @@ export default function HomePage() {
       {isDesktop && (
         <div
           ref={cursorRef}
-          className={`landing-cursor${hovering ? ' landing-cursor--view' : ''}`}
+          className={`landing-cursor${hoverLabel ? ' landing-cursor--view' : ''}`}
           aria-hidden
         >
-          <span className="landing-cursor-label">View</span>
+          <span className="landing-cursor-label">{hoverLabel}</span>
         </div>
       )}
     </div>

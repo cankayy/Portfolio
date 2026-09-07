@@ -1,128 +1,49 @@
-.about-page {
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 40px 24px 96px;
-}
-
-.about-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--text);
-  margin-bottom: 40px;
-  transition: opacity 0.2s;
-}
-
-.about-back:hover {
-  opacity: 0.6;
-}
-
-.about-back-arrow {
-  font-size: 17px;
-  line-height: 1;
-}
-
-/* ---------- Dotted frame ---------- */
-.about-frame {
+.aboutx {
+  --landing-left: clamp(220px, 22vw, 330px);
+  --landing-right: clamp(240px, 26vw, 360px);
   position: relative;
-  border-left: 1px dashed #dcdcdc;
-  border-right: 1px dashed #dcdcdc;
-  padding: 0 40px;
+  min-height: 100vh;
+  background: var(--bg);
 }
 
-.about-divider {
-  height: 0;
-  margin: 40px -40px;
-  border-top: 1px dashed #dcdcdc;
+/* Scroll-progress indicator follows the scroll position live (no easing lag) */
+.landing-indicator--live .landing-indicator-thumb {
+  transition: none;
 }
 
-/* ---------- Header ---------- */
-.about-header {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 18px;
-  padding-top: 8px;
+/* ---------- Body: center image column + right text column ---------- */
+.aboutx-body {
+  margin-left: var(--landing-left);
+  padding: 0 0 96px;
 }
 
-.about-title {
-  margin: 0;
-  font-size: clamp(30px, 4.5vw, 44px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--text);
-}
-
-.about-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.about-chips .chip {
-  padding: 7px 14px;
-  font-size: 13px;
-}
-
-/* ---------- Photo gallery ---------- */
-.about-gallery {
-  display: grid;
-  grid-template-columns: 1.34fr 1fr;
-  gap: 16px;
-}
-
-.about-gallery-main {
-  aspect-ratio: 609 / 444;
-  border-radius: 14px;
-  overflow: hidden;
-}
-
-.about-gallery-main img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.aboutx-images {
   display: block;
 }
 
-.about-gallery-side {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  gap: 16px;
-  min-height: 0;
-}
-
-.about-gallery-side img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 14px;
+.aboutx-images img {
   display: block;
+  width: 100%;
+  height: auto;
 }
 
-/* ---------- Content sections ---------- */
-.about-section {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 24px;
+.aboutx-text {
+  padding: 6px 56px 0 clamp(28px, 4vw, 64px);
+  max-width: 620px;
 }
 
-.about-section-label {
+.aboutx-label {
   display: flex;
   flex-direction: column;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.04em;
-  color: var(--text-muted);
   line-height: 1.5;
+  color: var(--text-muted);
+  margin-bottom: 22px;
 }
 
-.about-section-body {
-  max-width: 720px;
-}
-
-.about-section-heading {
+.aboutx-heading {
   margin: 0 0 20px;
   font-size: clamp(20px, 2.4vw, 24px);
   font-weight: 600;
@@ -130,86 +51,66 @@
   color: var(--text);
 }
 
-.about-paragraph {
+.aboutx-paragraph {
   margin: 0 0 18px;
-  font-size: 16px;
-  line-height: 1.65;
+  font-size: 15px;
+  line-height: 1.62;
   color: var(--text-muted);
 }
 
-.about-paragraph:last-child {
+.aboutx-paragraph:last-child {
   margin-bottom: 0;
 }
 
-/* ---------- Hobby gallery ---------- */
-.about-hobby-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 32px;
-}
-
-.about-hobby-gallery img {
-  width: 100%;
-  aspect-ratio: 402 / 354;
-  object-fit: cover;
-  border-radius: 14px;
-  display: block;
-}
-
-/* ---------- Responsive ---------- */
-@media (max-width: 760px) {
-  .about-page {
-    padding: 28px 16px 64px;
+/* ---------- Desktop: two-column grid, image group aligned with its text ---------- */
+@media (min-width: 901px) {
+  .aboutx-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(300px, 30vw, 460px);
+    column-gap: clamp(24px, 3.5vw, 64px);
+    align-items: start;
   }
 
-  .about-back {
-    margin-bottom: 28px;
+  .aboutx-images--bg {
+    grid-column: 1;
+    grid-row: 1;
   }
 
-  .about-frame {
-    padding: 0 20px;
+  .aboutx-text--bg {
+    grid-column: 2;
+    grid-row: 1;
+    padding-top: 56px;
   }
 
-  .about-divider {
-    margin: 32px -20px;
+  .aboutx-images--hob {
+    grid-column: 1;
+    grid-row: 2;
   }
 
-  .about-section {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .about-section-label {
-    flex-direction: row;
-    gap: 8px;
-  }
-
-  .about-hobby-gallery {
-    gap: 10px;
-  }
-
-  .about-paragraph {
-    font-size: 15px;
+  .aboutx-text--hob {
+    grid-column: 2;
+    grid-row: 2;
+    padding-top: 56px;
   }
 }
 
-@media (max-width: 520px) {
-  .about-gallery {
-    grid-template-columns: 1fr;
+/* ---------- Mobile: stack in reading order, hide the indicator ---------- */
+@media (max-width: 900px) {
+  .aboutx-body {
+    margin-left: 0;
+    padding: 0 0 64px;
   }
 
-  .about-gallery-main {
-    aspect-ratio: 4 / 3;
+  .aboutx-text {
+    padding: 28px 24px 40px;
+    max-width: 640px;
   }
 
-  .about-gallery-side {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: none;
+  .aboutx-images img {
+    aspect-ratio: auto;
   }
 
-  .about-gallery-side img {
-    aspect-ratio: 4 / 3;
-    height: auto;
+  .landing-indicator {
+    display: none;
   }
 }
