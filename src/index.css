@@ -9,6 +9,8 @@
   --radius-lg: 16px;
   --font-sans: 'DM Sans', system-ui, sans-serif;
   --content-top: 48px;
+  --landing-left: clamp(220px, 22vw, 330px);
+  --landing-right: clamp(240px, 26vw, 360px);
 }
 
 @media (max-width: 900px) {
@@ -155,5 +157,44 @@ img {
 @media (prefers-reduced-motion: reduce) {
   .page-fade {
     animation-duration: 0.01s;
+  }
+}
+
+/* ---------- Scroll-progress indicator (shared across pages) ---------- */
+.landing-indicator {
+  position: fixed;
+  right: 22px;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.landing-indicator-track {
+  position: relative;
+  width: 1px;
+  height: 90px;
+  background: #d8d8d8;
+  overflow: hidden;
+}
+
+.landing-indicator-thumb {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: #0a0a0a;
+  transition: top 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Live variant follows scroll position with no easing lag */
+.landing-indicator--live .landing-indicator-thumb {
+  transition: none;
+}
+
+@media (max-width: 900px) {
+  .landing-indicator {
+    display: none;
   }
 }

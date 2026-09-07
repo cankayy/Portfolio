@@ -1,6 +1,7 @@
 import { useState, useEffect, Fragment } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { caseStudies } from '../data/caseStudies'
+import ScrollProgress from '../components/ScrollProgress'
 import './CaseStudyPage.css'
 
 export default function CaseStudyPage() {
@@ -27,6 +28,7 @@ export default function CaseStudyPage() {
 
   return (
     <div className="case-study-page">
+      <ScrollProgress />
       <Link to="/" className="case-study-back">
         <span className="case-study-back-arrow" aria-hidden>←</span>
         <span className="case-study-back-name">Cannon Hurst</span>

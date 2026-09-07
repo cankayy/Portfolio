@@ -1,14 +1,8 @@
-import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 
 import '../pages/HomePage.css'
 import './AboutPage.css'
-
-const UpRightArrow = () => (
-  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-    <path d="M7 17L17 7M17 7H7M17 7V17" />
-  </svg>
-)
+import ScrollProgress from '../components/ScrollProgress'
 
 const backgroundParagraphs = [
   'I got into product design through an unlikely path: an English degree at the University of Washington. Studying literature taught me that everything tells a story, including how a product is built and who it seems to be for. A friend’s accessibility project made that concrete, and I chased the problem space on my own: Human-Centered Design courses, Design for America, a great mentor.',
@@ -18,65 +12,12 @@ const backgroundParagraphs = [
 ]
 
 export default function AboutPage() {
-  const [prog, setProg] = useState(0)
-
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
-  useEffect(() => {
-    const onScroll = () => {
-      const el = document.documentElement
-      const max = el.scrollHeight - el.clientHeight
-      setProg(max > 0 ? el.scrollTop / max : 0)
-    }
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onScroll)
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onScroll)
-    }
-  }, [])
-
   return (
     <div className="aboutx">
-      <div className="landing-identity">
-        <div className="landing-identity-top">
-          <div className="landing-brand">
-            <span className="landing-name">Cannon Hurst</span>
-            <span className="landing-role">Product Designer</span>
-          </div>
-          <div className="landing-chips">
-            <span className="chip">Currently @ Nuts &amp; Bolts AI</span>
-            <span className="chip">3 years of exp</span>
-            <a
-              className="chip chip-link"
-              href="https://www.linkedin.com/in/cannonhurst/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              LinkedIn <UpRightArrow />
-            </a>
-          </div>
-        </div>
-
-        <nav className="landing-nav" aria-label="Sections">
-          <Link to="/" className="landing-nav-item">Case studies</Link>
-          <Link to="/about" className="landing-nav-item landing-nav-item--active" aria-current="page">
-            About me
-          </Link>
-          <a
-            href="/cannon-hurst-resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="landing-nav-item"
-          >
-            Resume
-          </a>
-        </nav>
-      </div>
-
       <div className="aboutx-body">
         <div className="aboutx-images aboutx-images--bg">
           <img src="/about/portrait.png" alt="Cannon Hurst beneath cherry blossoms at the University of Washington" />
@@ -116,14 +57,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="landing-indicator landing-indicator--live" aria-hidden>
-        <div className="landing-indicator-track">
-          <div
-            className="landing-indicator-thumb"
-            style={{ height: '16%', top: `${prog * (100 - 16)}%` }}
-          />
-        </div>
-      </div>
+      <ScrollProgress />
     </div>
   )
 }

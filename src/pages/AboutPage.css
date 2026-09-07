@@ -1,14 +1,7 @@
 .aboutx {
-  --landing-left: clamp(220px, 22vw, 330px);
-  --landing-right: clamp(240px, 26vw, 360px);
   position: relative;
   min-height: 100vh;
   background: var(--bg);
-}
-
-/* Scroll-progress indicator follows the scroll position live (no easing lag) */
-.landing-indicator--live .landing-indicator-thumb {
-  transition: none;
 }
 
 /* ---------- Body: center image column + right text column ---------- */
@@ -28,8 +21,8 @@
 }
 
 .aboutx-text {
-  padding: 6px 56px 0 clamp(28px, 4vw, 64px);
-  max-width: 620px;
+  padding: 6px 48px 0 clamp(20px, 2.2vw, 40px);
+  max-width: 640px;
 }
 
 .aboutx-label {
@@ -66,8 +59,8 @@
 @media (min-width: 901px) {
   .aboutx-body {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) clamp(300px, 30vw, 460px);
-    column-gap: clamp(24px, 3.5vw, 64px);
+    grid-template-columns: minmax(0, 1fr) clamp(340px, 34vw, 520px);
+    column-gap: clamp(16px, 2vw, 36px);
     align-items: start;
   }
 
@@ -108,9 +101,5 @@
 
   .aboutx-images img {
     aspect-ratio: auto;
-  }
-
-  .landing-indicator {
-    display: none;
   }
 }

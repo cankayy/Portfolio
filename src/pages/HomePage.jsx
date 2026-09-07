@@ -10,12 +10,6 @@ const THUMB = 16 // scroll-indicator thumb height, % of track
 const ROTATE_MS = 7000 // auto-rotate interval
 const WHEEL_LOCK_MS = 850
 
-const LinkedInArrow = () => (
-  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-    <path d="M7 17L17 7M17 7H7M17 7V17" />
-  </svg>
-)
-
 const desktopQuery = '(min-width: 901px) and (hover: hover) and (pointer: fine)'
 
 export default function HomePage() {
@@ -65,47 +59,6 @@ export default function HomePage() {
 
   return (
     <div className={`landing${isDesktop ? ' landing--interactive' : ''}`}>
-      <div className="landing-identity">
-        <div className="landing-identity-top">
-          <div className="landing-brand">
-            <span className="landing-name">Cannon Hurst</span>
-            <span className="landing-role">Product Designer</span>
-          </div>
-          <div className="landing-chips">
-            <span className="chip">Currently @ Nuts &amp; Bolts AI</span>
-            <span className="chip">3 years of exp</span>
-            <a
-              className="chip chip-link"
-              href="https://www.linkedin.com/in/cannonhurst/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              LinkedIn <LinkedInArrow />
-            </a>
-          </div>
-        </div>
-
-        <nav className="landing-nav" aria-label="Sections">
-          <Link
-            to="/"
-            className="landing-nav-item landing-nav-item--active"
-            aria-current="page"
-            onClick={() => setActive(0)}
-          >
-            Case studies
-          </Link>
-          <Link to="/about" className="landing-nav-item">About me</Link>
-          <a
-            href="/cannon-hurst-resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="landing-nav-item"
-          >
-            Resume
-          </a>
-        </nav>
-      </div>
-
       <div className="landing-stage">
         {projects.map((p, i) => {
           const isActive = i === active
