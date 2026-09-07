@@ -20,9 +20,9 @@ export default function AboutPage() {
     <div className="aboutx">
       <div className="aboutx-body">
         <div className="aboutx-images aboutx-images--bg">
-          <img src="/about/portrait.png" alt="Cannon Hurst beneath cherry blossoms at the University of Washington" />
-          <img src="/about/landscape-water.png" alt="Sunset over Puget Sound" />
-          <img src="/about/landscape-mountain.png" alt="A rocky mountain ridgeline" />
+          <img src="/about/portrait.jpg" alt="Cannon Hurst beneath cherry blossoms at the University of Washington" />
+          <img src="/about/landscape-water.jpg" alt="Sunset over Puget Sound" />
+          <img src="/about/landscape-mountain.jpg" alt="A rocky mountain ridgeline" />
         </div>
         <div className="aboutx-text aboutx-text--bg">
           <div className="aboutx-label">
@@ -36,9 +36,9 @@ export default function AboutPage() {
         </div>
 
         <div className="aboutx-images aboutx-images--hob">
-          <img src="/about/hobby-music.png" alt="A music production session in a DAW" />
-          <img src="/about/hobby-travel.png" alt="A suspension bridge over a reservoir" />
-          <img src="/about/hobby-food.png" alt="Fried rice, gyoza, and drinks at a restaurant" />
+          <img src="/about/hobby-music.jpg" alt="A music production session in a DAW" />
+          <img src="/about/hobby-travel.jpg" alt="A suspension bridge over a reservoir" />
+          <img src="/about/hobby-food.jpg" alt="Fried rice, gyoza, and drinks at a restaurant" />
         </div>
         <div className="aboutx-text aboutx-text--hob">
           <div className="aboutx-label">
