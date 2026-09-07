@@ -29,6 +29,22 @@
 
 html {
   overflow-x: hidden;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* old Edge/IE */
+}
+
+/* Hide the native scrollbar everywhere while keeping scroll functional */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+/* When the custom cursor is active, hide the native one everywhere */
+.cursor-none,
+.cursor-none * {
+  cursor: none !important;
 }
 
 body {
@@ -80,4 +96,64 @@ img {
 
 .chip-link svg {
   flex-shrink: 0;
+}
+
+/* ---------- App-wide custom cursor ---------- */
+.app-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #0a0a0a;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2000;
+  will-change: transform;
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.35s cubic-bezier(0.22, 1, 0.36, 1), background 0.35s ease;
+}
+
+.app-cursor--active {
+  width: 96px;
+  height: 96px;
+}
+
+.app-cursor-label {
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.app-cursor--active .app-cursor-label {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ---------- Page fade transition ---------- */
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.page-fade {
+  animation: page-fade-in 0.45s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-fade {
+    animation-duration: 0.01s;
+  }
 }

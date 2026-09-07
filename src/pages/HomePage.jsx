@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { projects } from '../data/projects'
+// The custom cursor is provided app-wide by <Cursor/>; this page just marks
+// interactive elements with data-cursor.
 
 import './HomePage.css'
 
@@ -19,12 +21,10 @@ const desktopQuery = '(min-width: 901px) and (hover: hover) and (pointer: fine)'
 export default function HomePage() {
   const n = projects.length
   const [active, setActive] = useState(0)
-  const [hoverLabel, setHoverLabel] = useState(null)
   const [isDesktop, setIsDesktop] = useState(
     () => typeof window !== 'undefined' && window.matchMedia(desktopQuery).matches
   )
 
-  const cursorRef = useRef(null)
   const wheelLock = useRef(false)
 
   // Track whether the interactive (desktop, hover-capable) experience applies
@@ -62,38 +62,6 @@ export default function HomePage() {
     window.addEventListener('wheel', onWheel, { passive: false })
     return () => window.removeEventListener('wheel', onWheel)
   }, [isDesktop, n])
-
-  // Smooth, slightly-lagging custom cursor.
-  useEffect(() => {
-    if (!isDesktop) return
-    let raf
-    const cur = { x: window.innerWidth / 2, y: window.innerHeight / 2 }
-    const tgt = { ...cur }
-    const onMove = (e) => {
-      tgt.x = e.clientX
-      tgt.y = e.clientY
-    }
-    const loop = () => {
-      cur.x += (tgt.x - cur.x) * 0.08
-      cur.y += (tgt.y - cur.y) * 0.08
-      const el = cursorRef.current
-      if (el) {
-        el.style.transform = `translate3d(${cur.x}px, ${cur.y}px, 0) translate(-50%, -50%)`
-      }
-      raf = requestAnimationFrame(loop)
-    }
-    window.addEventListener('mousemove', onMove)
-    raf = requestAnimationFrame(loop)
-    return () => {
-      window.removeEventListener('mousemove', onMove)
-      cancelAnimationFrame(raf)
-    }
-  }, [isDesktop])
-
-  // Drop the hover state if we leave desktop mode
-  useEffect(() => {
-    if (!isDesktop) setHoverLabel(null)
-  }, [isDesktop])
 
   return (
     <div className={`landing${isDesktop ? ' landing--interactive' : ''}`}>
@@ -142,19 +110,16 @@ export default function HomePage() {
         {projects.map((p, i) => {
           const isActive = i === active
           const Tag = p.link ? Link : 'div'
-          const hoverText = p.link ? 'View' : 'Coming soon'
           const tagProps = p.link
             ? {
                 to: p.link,
                 className: `landing-photo landing-photo--link`,
-                onMouseEnter: () => setHoverLabel(hoverText),
-                onMouseLeave: () => setHoverLabel(null),
+                'data-cursor': 'View',
                 tabIndex: isActive ? 0 : -1,
               }
             : {
                 className: 'landing-photo',
-                onMouseEnter: () => setHoverLabel(hoverText),
-                onMouseLeave: () => setHoverLabel(null),
+                'data-cursor': 'Coming soon',
               }
           return (
             <section
@@ -193,16 +158,6 @@ export default function HomePage() {
           />
         </div>
       </div>
-
-      {isDesktop && (
-        <div
-          ref={cursorRef}
-          className={`landing-cursor${hoverLabel ? ' landing-cursor--view' : ''}`}
-          aria-hidden
-        >
-          <span className="landing-cursor-label">{hoverLabel}</span>
-        </div>
-      )}
     </div>
   )
 }

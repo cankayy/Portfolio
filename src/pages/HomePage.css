@@ -7,11 +7,6 @@
   background: var(--bg);
 }
 
-.landing--interactive,
-.landing--interactive * {
-  cursor: none;
-}
-
 /* ---------- Left identity column (fixed) ---------- */
 .landing-identity {
   position: fixed;
@@ -165,48 +160,6 @@
 
 .landing-meta-chips {
   gap: 8px;
-}
-
-/* ---------- Custom cursor ---------- */
-.landing-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #0a0a0a;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  z-index: 1000;
-  will-change: transform;
-  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-    height 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-    background 0.35s ease;
-}
-
-.landing-cursor--view {
-  width: 96px;
-  height: 96px;
-  background: #0a0a0a;
-}
-
-.landing-cursor-label {
-  font-size: 12.5px;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
-  opacity: 0;
-  transform: scale(0.6);
-  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.landing-cursor--view .landing-cursor-label {
-  opacity: 1;
-  transform: scale(1);
 }
 
 /* ---------- Scroll indicator ---------- */
