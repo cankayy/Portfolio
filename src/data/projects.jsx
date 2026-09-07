@@ -11,7 +11,7 @@ export const projects = [
     id: 'hugsi',
     number: '02',
     name: 'Hugsi',
-    image: '/landing/hugsi.png',
+    image: '/landing/hugsi.jpg',
     tags: ['Consumer Goods', 'Mobile Design', 'Role: Lead Product Designer'],
     link: '/project/hugsi',
   },
