@@ -17,8 +17,8 @@
   pointer-events: none;
   background: repeating-linear-gradient(
     to bottom,
-    #d9d9d9 0,
-    #d9d9d9 5px,
+    var(--divider) 0,
+    var(--divider) 5px,
     transparent 5px,
     transparent 9px
   );
@@ -44,8 +44,8 @@
   height: 1px;
   background: repeating-linear-gradient(
     to right,
-    #d9d9d9 0,
-    #d9d9d9 5px,
+    var(--divider) 0,
+    var(--divider) 5px,
     transparent 5px,
     transparent 9px
   );
@@ -90,8 +90,8 @@
   pointer-events: none;
   background: repeating-linear-gradient(
     to bottom,
-    #d9d9d9 0,
-    #d9d9d9 5px,
+    var(--divider) 0,
+    var(--divider) 5px,
     transparent 5px,
     transparent 9px
   );
@@ -525,9 +525,9 @@
 }
 
 .case-study-hero-bento__cell {
-  background: #fff;
+  background: var(--surface);
   border-radius: 25px;
-  border: 0.5px solid #d9d9d9;
+  border: 0.5px solid var(--divider);
   box-shadow: 0 0 6.55px 0 rgba(0, 0, 0, 0.1);
   overflow: hidden;
   position: relative;
@@ -546,9 +546,9 @@
 /* Hero image: white box matching bento style (25px radius, stroke, shadow) */
 .case-study-hero-image {
   margin-bottom: 250px;
-  background: #fff;
+  background: var(--surface);
   border-radius: 25px;
-  border: 0.5px solid #d9d9d9;
+  border: 0.5px solid var(--divider);
   box-shadow: 0 0 6.55px 0 rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
@@ -566,7 +566,7 @@
 }
 
 .case-study-placeholder {
-  background: #e5e5e5;
+  background: var(--border);
   border-radius: 8px;
 }
 
@@ -648,8 +648,8 @@
   height: 1px;
   background: repeating-linear-gradient(
     to right,
-    #d9d9d9 0,
-    #d9d9d9 5px,
+    var(--divider) 0,
+    var(--divider) 5px,
     transparent 5px,
     transparent 9px
   );
@@ -670,8 +670,8 @@
   height: 1px;
   background: repeating-linear-gradient(
     to right,
-    #d9d9d9 0,
-    #d9d9d9 5px,
+    var(--divider) 0,
+    var(--divider) 5px,
     transparent 5px,
     transparent 9px
   );
@@ -693,7 +693,7 @@
 
 .case-study-section--problem .case-study-section-subtitle {
   display: inline-block;
-  background: #efefef;
+  background: var(--surface-2);
   padding: 6px 14px;
   border-radius: 999px;
 }
@@ -805,7 +805,7 @@
 
 .case-study-problem-card {
   padding: 24px;
-  background: #efefef;
+  background: var(--surface-2);
   border: none;
   border-radius: 8px;
 }
@@ -911,8 +911,8 @@
   pointer-events: none;
   background: repeating-linear-gradient(
     to bottom,
-    #d9d9d9 0,
-    #d9d9d9 5px,
+    var(--divider) 0,
+    var(--divider) 5px,
     transparent 5px,
     transparent 9px
   );
@@ -1041,8 +1041,8 @@
   height: 1px;
   background: repeating-linear-gradient(
     to right,
-    #d9d9d9 0,
-    #d9d9d9 5px,
+    var(--divider) 0,
+    var(--divider) 5px,
     transparent 5px,
     transparent 9px
   );
@@ -1133,20 +1133,20 @@
   font-size: 13px;
   font-weight: 600;
   font-family: var(--font-sans);
-  color: #444;
+  color: var(--text-muted);
   background: transparent;
   cursor: pointer;
   transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .case-study-deliverables-tab:hover {
-  color: #1a1a1a;
+  color: var(--text);
   background: rgba(255, 255, 255, 0.4);
 }
 
 .case-study-deliverables-tab--active {
-  background: #fff;
-  color: #1a1a1a;
+  background: var(--surface);
+  color: var(--text);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.06);
 }
@@ -1200,8 +1200,8 @@
   pointer-events: none;
   background: repeating-linear-gradient(
     to bottom,
-    #d9d9d9 0,
-    #d9d9d9 5px,
+    var(--divider) 0,
+    var(--divider) 5px,
     transparent 5px,
     transparent 9px
   );
@@ -1222,8 +1222,8 @@
   pointer-events: none;
   background: repeating-linear-gradient(
     to bottom,
-    #d9d9d9 0,
-    #d9d9d9 5px,
+    var(--divider) 0,
+    var(--divider) 5px,
     transparent 5px,
     transparent 9px
   );

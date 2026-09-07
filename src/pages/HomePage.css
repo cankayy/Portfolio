@@ -75,7 +75,7 @@
 .landing-nav-item--active {
   color: var(--text);
   font-weight: 600;
-  background: #f1f1f1;
+  background: var(--nav-active-bg);
 }
 
 /* ---------- Stage / crossfading panels ---------- */
@@ -149,13 +149,13 @@
 .landing-meta-number {
   font-size: 26px;
   font-weight: 400;
-  color: #b0b0b0;
+  color: var(--meta-number);
 }
 
 .landing-meta-name {
   font-size: 26px;
   font-weight: 400;
-  color: #7d7d7d;
+  color: var(--meta-name);
 }
 
 .landing-meta-chips {

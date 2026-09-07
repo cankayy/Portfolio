@@ -4,6 +4,7 @@ import AboutPage from './pages/AboutPage'
 import CaseStudyPage from './pages/CaseStudyPage'
 import SiteNav from './components/SiteNav'
 import Cursor from './components/Cursor'
+import ThemeToggle from './components/ThemeToggle'
 import './App.css'
 
 /* Landing + About share a persistent left navbar; only the content fades. */
@@ -43,6 +44,7 @@ function App() {
         </Route>
         <Route path="/project/:id" element={<ProjectLayout />} />
       </Routes>
+      <ThemeToggle />
       <Cursor />
     </div>
   )
