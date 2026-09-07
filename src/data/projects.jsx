@@ -3,7 +3,7 @@ export const projects = [
     id: 'cheerful-ai',
     number: '01',
     name: 'Cheerful AI',
-    image: '/landing/cheerful-ai.png',
+    image: '/landing/cheerful-ai.jpg',
     tags: ['Agentic Marketing', 'Desktop Design', 'Role: Product Designer'],
     link: '/project/cheerful-ai',
   },
