@@ -18,6 +18,13 @@
   margin-left: 180px;
 }
 
+/* Bare wrapper for the landing and about pages, which own their full layout */
+.main-bare {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+
 .main--full-width {
   margin-left: 0;
   padding-left: 180px;

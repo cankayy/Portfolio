@@ -51,3 +51,33 @@ img {
   height: auto;
   display: block;
 }
+
+/* Shared pill / chip (used by the landing and about pages) */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.chip-link {
+  border-color: #1a1a1a;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.chip-link:hover {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.chip-link svg {
+  flex-shrink: 0;
+}
